@@ -48,4 +48,9 @@ body.light .chip.active{background:#111;color:#fff}
 /* Ajuste grilla watch para que el player se vea más grande */
 .watch-grid{grid-template-columns:minmax(720px,1fr) 400px}
 @media (max-width:1200px){ .watch-grid{grid-template-columns:1fr} }
+/* Mantiene todo lo anterior + transiciones sutiles */
+.sugg{transition:border-color .15s, transform .15s}
+.sugg:hover{border-color:var(--brand);transform:translateY(-1px)}
+.hud-btn{transition:transform .12s, background .12s}.hud-btn:hover{transform:translateY(-1px);background:rgba(255,255,255,.16)}
+.pill{transition:transform .15s, filter .15s}
 
