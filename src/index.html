@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>MediTube | Hospital & Medicina</title>
+    <link rel="stylesheet" href="styles.css"/>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2215%22 fill=%22%230066ff%22/><path d=%22M45 20h10v25h25v10H55v25H45V55H20V45h25z%22 fill=%22white%22/></svg>">
+</head>
+<body>
+<!-- Encabezado tipo YouTube -->
+<header class="topbar" role="banner">
+    <button class="icon-btn" id="btnToggleSidebar" aria-label="Abrir menú">
+        ☰
+    </button>
+
+    <a class="brand" href="#" aria-label="MediTube inicio">
+        <span class="brand-logo">🩺</span>
+        <span class="brand-text">MediTube</span>
+    </a>
+
+    <form class="search" role="search" id="searchForm" aria-label="Buscar videos">
+        <input id="searchInput" type="search" placeholder="Buscar en MediTube" aria-label="Buscar"/>
+        <button type="submit" class="icon-btn" aria-label="Buscar">🔍</button>
+        <button type="button" class="icon-btn" id="voiceBtn" aria-label="Búsqueda por voz">🎤</button>
+    </form>
+
+    <nav class="top-actions" aria-label="Acciones">
+        <button class="icon-btn" id="btnDarkMode" aria-pressed="false" aria-label="Cambiar tema">🌓</button>
+        <img class="avatar" src="https://i.pravatar.cc/40?img=68" alt="Perfil"/>
+    </nav>
+</header>
+
+<!-- Contenedor -->
+<div class="layout">
+    <!-- Menú lateral -->
+    <aside class="sidebar" id="sidebar" aria-label="Secciones">
+        <ul>
+            <li><button class="nav-link active" data-section="home">🏠 Menú</button></li>
+            <li><button class="nav-link" data-section="videos">▶️ Videos</button></li>
+            <li><button class="nav-link" data-section="channels">📺 Canales</button></li>
+            <li><button class="nav-link" data-section="subs">🔔 Suscripciones</button></li>
+            <li><button class="nav-link" data-section="history">🕘 Historial</button></li>
+        </ul>
+    </aside>
+
+    <!-- Contenido principal -->
+    <main id="content" tabindex="-1">
+        <!-- Home / Menú -->
+        <section class="section" id="home" aria-labelledby="home-title">
+            <h1 id="home-title">Bienvenido a MediTube</h1>
+            <p>Plataforma educativa de salud con estilo YouTube. Usa la barra de búsqueda, explora canales, suscríbete y revisa tu historial.</p>
+
+            <div class="cta-row">
+                <button id="btnMostrarTips" class="btn">Mostrar tips (DOM)</button>
+                <button id="btnOcultarTips" class="btn btn-outline">Ocultar tips</button>
+                <button id="btnRepintar" class="btn">Repintar tarjetas</button>
+            </div>
+
+            <div id="tips" class="tips" hidden>
+                <ul>
+                    <li>Atajo: presiona la tecla <kbd>/</kbd> para enfocar la búsqueda.</li>
+                    <li>Haz clic en un video para agregarlo a tu historial.</li>
+                    <li>Suscríbete a canales y se guardará en tu navegador (localStorage).</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Videos -->
+        <section class="section hidden" id="videos" aria-labelledby="videos-title">
+            <div class="section-header">
+                <h2 id="videos-title">Videos de Salud</h2>
+                <div class="inline-actions">
+                    <button class="btn btn-outline" id="btnAgregarVideo">Agregar video (DOM)</button>
+                    <button class="btn btn-danger" id="btnEliminarUltimo">Eliminar último</button>
+                </div>
+            </div>
+            <div id="videoGrid" class="grid"></div>
+        </section>
+
+        <!-- Canales -->
+        <section class="section hidden" id="channels" aria-labelledby="channels-title">
+            <h2 id="channels-title">Canales de Medicina</h2>
+            <div id="channelList" class="channel-list"></div>
+        </section>
+
+        <!-- Suscripciones -->
+        <section class="section hidden" id="subs" aria-labelledby="subs-title">
+            <h2 id="subs-title">Tus Suscripciones</h2>
+            <div id="subsList" class="list"></div>
+        </section>
+
+        <!-- Historial -->
+        <section class="section hidden" id="history" aria-labelledby="history-title">
+            <div class="section-header">
+                <h2 id="history-title">Historial</h2>
+                <button class="btn btn-danger" id="btnLimpiarHistorial">Limpiar historial</button>
+            </div>
+            <div id="historyList" class="list"></div>
+        </section>
+    </main>
+</div>
+
+<footer class="footer">
+    <small>© 2025 MediTube — Proyecto académico (HTML, CSS, JS)</small>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
